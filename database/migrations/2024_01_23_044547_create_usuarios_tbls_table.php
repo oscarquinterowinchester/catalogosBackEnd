@@ -19,8 +19,8 @@ return new class extends Migration
             $table->binary('password');
             // $table->integer('type',11)->nullable(false);
             $table->integer('type')->nullable(false);
-            $table->unsignedBigInteger('company')->nullable(true);
-            $table->tinyInteger('estatus')->default(1);
+            $table->unsignedBigInteger('company_fk')->nullable(true);
+            $table->tinyInteger('estatus_fk')->default(1);
             $table->float('rating'); // 8 digitos en total, 2 decimales
 
             // $table->
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usuarios_tbls');
+        Schema::dropIfExists('usuarios_tbl');
     }
 };
