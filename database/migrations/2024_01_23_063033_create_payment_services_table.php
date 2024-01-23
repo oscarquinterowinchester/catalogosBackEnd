@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('payment_services_tbl', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer("user_service_id")->nullable(false);
+            $table->integer("user_service_fk")->nullable(false);
             $table->float("payment");
-            $table->integer("method_id")->nullable(false);
+            $table->integer("method_fk")->nullable(false);
             $table->string("note",250)->nullable(true);
-            $table->integer("user_received")->nullable(false);
+            $table->integer("user_received_fk")->nullable(false);
         });
     }
 

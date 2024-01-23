@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('orders_tbl', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger("customer_id")->nullable(true);
-            $table->unsignedBigInteger("vendor_id")->nullable(false);
+            $table->unsignedBigInteger("customer_fk")->nullable(true);
+            $table->unsignedBigInteger("vendor_fk")->nullable(false);
             $table->datetime("date")->nullable(false);
             $table->float("modified_price")->nullable(true);
             $table->unsignedTinyInteger('confirmed')->default(0);

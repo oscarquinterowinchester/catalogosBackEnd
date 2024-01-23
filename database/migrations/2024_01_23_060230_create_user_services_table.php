@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('user_services_tbl', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer("service_id")->nullable(false);
-            $table->integer("user_id")->nullable(false);
+            $table->integer("service_fk")->nullable(false);
+            $table->integer("user_fk")->nullable(false);
             $table->float('client_price');
             $table->datetime("start")->nullable(true);
             $table->datetime("end")->nullable(true);

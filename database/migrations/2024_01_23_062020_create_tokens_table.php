@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('token', 255)->unique();
-            $table->unsignedBigInteger('user');
+            $table->unsignedBigInteger('user_fk');
             $table->dateTime('created');
             $table->smallInteger('type');
             

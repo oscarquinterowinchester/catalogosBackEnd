@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('services_tbl', function (Blueprint $table) {
             $table->id();
             $table->string("service",200)->unique()->nullable(false);
-            $table->smallInteger("user_type");
+            $table->smallInteger("user_type_fk");
             $table->float("price");
             $table->string("description",300)->nullable(true);
         });
