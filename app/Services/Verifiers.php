@@ -3,8 +3,7 @@
 namespace App\Services;
 use Illuminate\Support\Facades\DB;
 
-//Esta clase realiza diferentes tareas de verificación para las diferentes acciones que se realizan previas a la inserción
-//o recepccion de información externa
+//Esta clase realiza diferentes tareas de verificación para las diferentes acciones que se realizan previas a la inserción o recepccion de información externa
 class Verifiers{
     private $strings;
     public function __construct() {}
@@ -39,8 +38,8 @@ class Verifiers{
         return true;
     }
 
-    //Verifica si una cadena es una estructura de número telefonico, se le puede pasar el numero total de digitos, maximo de digitos o una expresion
-    //regular con el fromato que debe tener para hacer la verificación
+    //Verifica si una cadena es una estructura de número telefonico, se le puede pasar el numero total y exacto de digitos, maximo de digitos o una expresion
+    //regular con el formato que debe tener para hacer la verificación
     public function phone($phone = null, $digits = null, $maxDigits = null, $regEx = null){
         if(!$phone || !is_string($phone)) return false;
         if( $digits && is_numeric($digits) && intval($digits) != strlen($phone)) return false;
@@ -50,7 +49,7 @@ class Verifiers{
     }
 
      //Verifica que dentro de un array un indice exista y tenga un valor entero , si se le pasa un valor miniomo y/o maximo verifica que el entero este en el rango
-     public function inArrayNumericInt($array, $index, $min = null, $max = null) {
+     public function inArrayInt($array, $index, $min = null, $max = null) {
         if(!array_key_exists($index,$array) || 
         !$array[$index] || 
         !is_numeric($array[$index]) || 
@@ -60,8 +59,8 @@ class Verifiers{
         return true;
     }
 
-    //igual al anterio pero con valores decimales
-    public function inArrayNumericFloat($array, $index, $min = null, $max = null) {
+    //Verifica que dentro de un array un indice exista y tenga un valor tipo float, se puede especificar un rango minimo y/o maximo
+    public function inArrayFloat($array, $index, $min = null, $max = null) {
         if(!array_key_exists($index,$array) || 
         !$array[$index] || 
         !is_numeric($array[$index]) || 
@@ -71,7 +70,8 @@ class Verifiers{
         return true;
     }
 
-    //igual al anteior pero con string
+    //Verifica que dentro de un array un indice exista y tenga un valor tipo String, si se envia $len se verifica que el tamaño sea exactamente de esa longitur
+    //Así como un valor de longitud mínima y/o máxima
     public function inArrayString($array, $index, $len = null, $min = null, $max = null) {
         if(!array_key_exists($index,$array) || 
         !$array[$index] || 
@@ -83,7 +83,7 @@ class Verifiers{
         return true; 
     }
 
-    //verifica si una variable es de tpo string con los atributos inidcados en los valores de entrada
+    //verifica si una variable exista y es de tpo string con los atributos inidcados en los valores de entrada
     public function string($value, $len = null, $min = null, $max = null) {
         if(!is_string($value) || 
         ($len && strlen(trim($value)) !== $len) ||
@@ -93,7 +93,7 @@ class Verifiers{
         return true; 
     }
 
-    //Verifica que in valor sea un entero y cupla con los rangos enviados
+    //Verifica que un valor exista y sea un entero y cupla con los rangos enviados (en caso de enviarlos)
     public function int($value, $min = null, $max = null) {
         if(!isset($value) || !is_numeric($value) || 
         ($min && intval($value) < $min) || 
@@ -110,7 +110,7 @@ class Verifiers{
         return true;
     }
 
-     //verifica si una avriable es un array de strings, recibe la posibilidad de verificar la longitud mínima y máxima
+     //verifica si una variable es un array de strings, recibe la posibilidad de verificar la longitud mínima y máxima
      public function array_string($value = null, $minLength = null, $maxLength = null) {
         if(!isset($value) || 
         !is_array($value) || 
@@ -121,6 +121,7 @@ class Verifiers{
         return true;
     }
 
+    //busca el indice en un aray de sttrings
     public function searchIndex($string, $single){
         if(!is_string($string) || !is_string($single) || strlen($single) != 1) return -1;
 
@@ -130,7 +131,7 @@ class Verifiers{
         return -1;
     }
 
-    //Atma un query usando las palabras clave y klos nombres de las columnas, amabas deben ser strings cada valor separados por espacios
+    //Arma un query usando las palabras clave y los nombres de las columnas, amabas deben ser strings cada valor separados por espacios
     public function generalSearh($busqueda, $columnas) {
         $busqueda = $this->extraerBloquesUnicos($busqueda);
         $columnas = $this->extraerBloquesUnicos($columnas);
@@ -176,18 +177,5 @@ class Verifiers{
         return $data;
     }
 
-    //Recibe un perfil de usuario (es importate que este previamente modificado y contenga el atributo) devolvera un mensje con el estatus en false si no se contro el dato util
-    public function compania_fom_diffenrent_user($userData, $company_text = null) {
-        $company;
-        if($userData->rango_permiso < 500){//si el usuario es de jerarquia mas alta que COMPANY ADMIN
-            if(!$this->string($company_text, null, 1, 250)) return ['estatus' => false,'msj' => 'Proporcione en nombre de la compañia a la que se le asignará este tipo de almacenamiento'];
-            //Verificamos la existencia de la compañia en la base de datos
-            $company = DB::selectOne('SELECT company FROM companys WHERE LOWER(company) = ?',[strtolower($company_text)]);
-            if(!$company) return ['estatus' => false,'msj' => 'La compañia no existe, verifique que el nombre que envía sea correcto.'];
-            $company = $company->company;
-        }else $company = $userData->compania;
-
-        if(!$company) return ['estatus' => false,'msj' => 'Compañia no recibida'];
-        return ['estatus' => true, 'data' => $company];;
-    }
+   
 }
