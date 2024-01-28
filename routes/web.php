@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('/templates')->controller(\App\Http\Controllers\TestController::class)->group(function (){
+    Route::get('/email', 'email_template');
+});
+

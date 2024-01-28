@@ -60,27 +60,16 @@ class Mailer{
     }
     
     //Envia un email de confirmación de cuenta a un usuario de tipo consignatario
-    public function sendConsignatarioConfirmationEmail($email, $token, $company, $cliente_razon_social){
+    public function sendAccountConfirmationEmail($email, $token, $cliente_razon_social){
         //Preparando la url de confirmación
         $token_encoded = urlencode($token);
         $baseURL = env('WEB_URL');
         $url = $baseURL. "/company/verify/account?token=" .$token_encoded;
         
         //Renderizamos el view con el template de confirmación
-        $htmlContent = view('email_company_confirmation_template',['url' => $url, 'company' => $company, 'cliente' => $cliente_razon_social])->render();
+        $htmlContent = view('email_company_confirmation_template',['url' => $url])->render();
 
-        $this->send_email_html($email, $company, $htmlContent, 'Confirmación de creación de cuenta', $company);
-    }
-
-    //Envia un email con la url de acceso al loguin de consignatarios
-    public function sendCompanyURLloginLink($email, $company, $cliente_razon_social){
-        //Preparando la url de login de consignatario
-        $companyURL = env('FRONT_END_URL')."clientes?company=".urlencode($company); 
-        
-        //Renderizamos el view con el template de confirmación
-        $htmlContent = view('email_url_login_consignatario_template',['url' => strtoupper($companyURL) , 'company' => strtoupper($company) , 'cliente' => strtoupper($cliente_razon_social)])->render();
-
-        $this->send_email_html($email, $company, $htmlContent, "Iniciar sesión en $company", $company);
+        $this->send_email_html($email, env('COMPANY_NAME'), $htmlContent, 'Confirmación de creación de cuenta', env('COMPANY_NAME'));
     }
 
     public function sentPasswordRecoveryEmail($correo,$nombre, $link){

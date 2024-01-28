@@ -1,0 +1,172 @@
+.bg-red1{
+    background-color: rgb(255, 0, 0);
+}
+
+.bg-red2{
+    background-color: rgb(211, 1, 1);
+}
+
+.bg-red3{
+    background-color: rgb(158, 0, 0);
+}
+
+.bg-red4{
+    background-color: rgb(115, 0, 0);
+}
+
+.bg-red4{
+    background-color: rgb(68, 0, 0);
+}
+
+.bg-red5{
+    background-color: rgb(29, 0, 0);
+}
+
+.bg-blue1{
+    background-color: rgb(0, 106, 255);
+}
+
+.bg-blue2{
+    background-color: rgb(2, 91, 216);
+}
+
+.bg-blue3{
+    background-color: rgb(1, 66, 156);
+}
+
+.bg-blue4{
+    background-color: rgb(1, 38, 91);
+}
+
+.bg-blue5{
+    background-color: rgb(1, 21, 49);
+}
+
+.bg-green1{
+    background-color: rgb(38, 255, 0);
+}
+
+.bg-green2{
+    background-color: rgb(29, 188, 1);
+}
+
+.bg-green3{
+    background-color: rgb(22, 134, 2);
+}
+
+.bg-green4{
+    background-color: rgb(15, 94, 1);
+}
+
+.bg-green5{
+    background-color: rgb(7, 47, 0);
+}
+
+.bg-yellow1{
+    background-color: rgb(255, 255, 0);
+}
+
+.bg-yellow2{
+    background-color: rgb(211, 211, 3);
+}
+
+.bg-yellow3{
+    background-color: rgb(160, 160, 2);
+}
+
+.bg-yellow4{
+    background-color: rgb(112, 112, 1);
+}
+
+.bg-yellow5{
+    background-color: rgb(56, 56, 1);
+}
+
+/*textos colores*/
+.text-red1{
+    color: rgb(255, 0, 0);
+}
+
+.text-red2{
+    color: rgb(211, 1, 1);
+}
+
+.text-red3{
+    color: rgb(158, 0, 0);
+}
+
+.text-red4{
+    color: rgb(115, 0, 0);
+}
+
+.text-red4{
+    color: rgb(68, 0, 0);
+}
+
+.text-red5{
+    color: rgb(29, 0, 0);
+}
+
+.text-blue1{
+    color: rgb(0, 106, 255);
+}
+
+.text-blue2{
+    color: rgb(2, 91, 216);
+}
+
+.text-blue3{
+    color: rgb(1, 66, 156);
+}
+
+.text-blue4{
+    color: rgb(1, 38, 91);
+}
+
+.text-blue5{
+    color: rgb(1, 21, 49);
+}
+
+.text-green1{
+    color: rgb(38, 255, 0);
+}
+
+.text-green2{
+    color: rgb(29, 188, 1);
+}
+
+.text-green3{
+    color: rgb(22, 134, 2);
+}
+
+.text-green4{
+    color: rgb(15, 94, 1);
+}
+
+.text-green5{
+    color: rgb(7, 47, 0);
+}
+
+.text-yellow1{
+    color: rgb(255, 255, 0);
+}
+
+.text-yellow2{
+    color: rgb(211, 211, 3);
+}
+
+.text-yellow3{
+    color: rgb(160, 160, 2);
+}
+
+.text-yellow4{
+    color: rgb(112, 112, 1);
+}
+
+.text-yellow5{
+    color: rgb(56, 56, 1);
+}
+
+.white-85{
+    background-color: rgba(239, 239, 239, 0.851);
+}

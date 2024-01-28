@@ -1,0 +1,142 @@
+.position-less-50{ position: fixed;z-index: -50;}
+.position-less-30{ position: fixed; z-index: -30;}
+.position-less-20{ position: fixed; z-index: -20;}
+.position-less-10{ position: fixed; z-index: -10;}
+.position-less-5{ position: fixed; z-index: -5;}
+.position-less-1{ position: fixed; z-index: -1;}
+.position-01{ position: fixed; z-index: 0;}
+.position-50{ position: fixed; z-index: 5000;}
+.position-30{ position: fixed; z-index: 3000;}
+.position-20{ position: fixed; z-index: 2000;}
+.position-10{ position: fixed; z-index: 1000;}
+.position-5{ position: fixed; z-index: 500;}
+.position-1{ position: fixed; z-index: 100;}
+
+.top-left-front{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+}
+
+.top-right-front{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999999;
+}
+
+.top-center-front{
+    position: fixed;
+    top: 0;
+    right: 45%;
+    z-index: 999999;
+}
+
+.center-front{
+    position: fixed;
+    top: 45%;
+    right: 45%;
+    z-index: 999999;
+}
+
+.bottom-left-front{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999999;
+}
+
+.bottom-right-front{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 999999;
+}
+
+.bottom-center-front{
+    position: fixed;
+    bottom: 0;
+    left: 45%;
+    right: 45%;
+    z-index: 999999;
+}
+
+/*//////////////////////////////////*/
+.top-left-back{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+}
+
+.top-right-back{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999999;
+}
+
+.top-center-back{
+    position: fixed;
+    top: 0;
+    right: 45%;
+    z-index: 999999;
+}
+
+.center-back{
+    position: fixed;
+    top: 45%;
+    right: 45%;
+    z-index: 999999;
+}
+
+.bottom-left-back{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999999;
+}
+
+.bottom-right-back{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 999999;
+}
+
+.bottom-center-back{
+    position: fixed;
+    bottom: 0;
+    left: 45%;
+    right: 45%;
+    z-index: 999999;
+}
+
+.sticky-top{
+    position: sticky;
+    top: 0;
+}
+
+.sticky-left{
+    position: sticky;
+    left: 0;
+}
+
+.sticky-right{
+    position: sticky;
+    right: 0;
+}
+
+.sticky-bottom{
+    position: sticky;
+    bottom: 0;
+}
+
+.sticky-center{
+    position: sticky;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    bottom: 50%;
+}
